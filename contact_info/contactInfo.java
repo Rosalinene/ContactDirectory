@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package contact_info;
 
 import java.io.Serializable;
@@ -14,140 +11,163 @@ public class contactInfo implements Serializable
 {
     private String name;
     private String address;
-    private String emailAddress;
-    private String workPhoneNumber;
-    private String cellPhoneNumber;
+    private String email;
+    private String workPhone;
+    private String cellPhone;
 
     // Constructor
-    public contactInfo(String name, String address, String emailAddress, String workPhoneNumber, String cellPhoneNumber) 
+    public contactInfo(String name_, String address_, String email_, String workPhone_, String cellPhone_) 
     {
-        this.name = name;
-        this.address = address;
-        this.emailAddress = emailAddress;
-        this.workPhoneNumber = workPhoneNumber;
-        this.cellPhoneNumber = cellPhoneNumber;
+        this.name = name_;
+        this.address = address_;
+        this.email = email_;
+        this.workPhone = workPhone_;
+        this.cellPhone = cellPhone_;
     }
 
-    public String getName() {
+    public String getName() 
+    {
         return name;
     }
 
-    public String getAddress() {
+    public String getAddress() 
+    {
         return address;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmailAddress() 
+    {
+        return email;
     }
 
-    public String getWorkPhoneNumber() {
-        return workPhoneNumber;
+    public String getWorkPhoneNumber() 
+    {
+        return workPhone;
     }
 
-    public String getCellPhoneNumber() {
-        return cellPhoneNumber;
+    public String getCellPhoneNumber() 
+    {
+        return cellPhone;
     }
     
-    public void setName(String name_) {
-        if (isValidName(name_)) {
+    public void setName(String name_) 
+    {
+        if (isValidName(name_)) 
+        {
             name = name_;
         }
     }
     
-    public void setAddress(String address_) {
-        if (isValidAddress(address_)){
+    public void setAddress(String address_) 
+    {
+        if (isValidAddress(address_))
+        {
             address = address_;
         }
     }
     
-    public void setEmail(String email_) {
-        if (isValidEmail(email_)) {
+    public void setEmail(String email_) 
+    {
+        if (isValidEmail(email_)) 
+        {
             email = email_;
         }
         
     }
-    public void setWorkPhone(String work_phone_) {
-        if (isValidPhone(work_phone_)) {
-            work_phone = work_phone_;
+    public void setWorkPhone(String workPhone_) 
+    {
+        if (isValidPhone(workPhone_)) 
+        {
+            workPhone = workPhone_;
         }
     }
     
-    public void setCellPhone(String cell_phone_) {
-        if (isValidPhone(cell_phone_)) {
-            cell_phone = cell_phone_;
+    public void setCellPhone(String cellPhone_) 
+    {
+        if (isValidPhone(cellPhone_)) 
+        {
+            cellPhone = cellPhone_;
         }
     }
    
-     private boolean isValidName(String name_) {
+     private boolean isValidName(String name_) 
+     {
         // ret stands for a condition to be added later on
         boolean ret = true;
 
         // code to check valid here
         
-        if (ret) {
+        if (ret) 
+        {
             System.out.println("Name valid!");
             return true;
         }
         System.out.println("Name not valid!");
         return false;
     }
-    private boolean isValidAddress(String address_) {
+     
+    private boolean isValidAddress(String address_) 
+    {
         // ret stands for a condition to be added later on
         boolean ret = true;
 
         // code to check valid here
 
-        if (ret) {
+        if (ret) 
+        {
             System.out.println("Address valid!");
             return true;
         }
         System.out.println("Address not valid!");
         return false;
     }
-    private boolean isValidEmail(String email_) {
+    
+    private boolean isValidEmail(String email_) 
+    {
         // ret stands for a condition to be added later on
         boolean ret = true;
 
         // code to check valid here
 
-        if (ret) {
+        if (ret) 
+        {
             System.out.println("Email valid!");
             return true;
         }
         System.out.println("Email not valid!");
         return false;
     }
-    private boolean isValidPhone(String phone_) {
+    
+    private boolean isValidPhone(String phone_) 
+    {
         // ret stands for a condition to be added later on
         boolean ret = true;
 
         // code to check valid here
 
-        if (ret) {
+        if (ret) 
+        {
             System.out.println("Phone number valid!");
             return true;
         }
         System.out.println("Phone number not valid!");
         return false;
     }
-    public void fromString(String txt) {
+    
+    public void fromString(String txt) 
+    {
         String[] tokens = txt.split("\t");
         name = tokens[0];
         address = tokens[1];
         email = tokens[2];
-        work_phone = tokens[3];
-        cell_phone = tokens[4];
+        workPhone = tokens[3];
+        cellPhone = tokens[4];
+    }
+
+    @Override
+    public String toString() {
+        return "contactInfo{" + "name=" + name + ", address=" + address + ", email=" + email + ", workPhone=" + workPhone + ", cellPhone=" + cellPhone + '}';
     }
     
-    @Override
-    public String toString() 
-    {
-        return "ContactInfo{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", workPhoneNumber='" + workPhoneNumber + '\'' +
-                ", cellPhoneNumber='" + cellPhoneNumber + '\'' +
-                '}';
-    }
+    
 }
