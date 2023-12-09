@@ -18,16 +18,16 @@ public class fileManagement
         this.contactDirectory = contactDirectory;
     }
     
-    public void fromFile(String filepath) 
+    public void fromFile(String filePath) 
     {
-        File contact_file = new File(filepath);
+        File contactFile = new File(filePath);
         
-        if (contact_file.exists()) 
+        if (contactFile.exists()) 
         {
             try 
             {
-                contactDirectory.contact_list.clear();
-                Scanner scanner = new Scanner(contact_file);
+                contactDirectory.contactList.clear();
+                Scanner scanner = new Scanner(contactFile);
                 
                 while (scanner.hasNextLine()) 
                 {
@@ -40,35 +40,35 @@ public class fileManagement
             } 
             catch (FileNotFoundException e) 
             {
-                System.out.println("File not found: " + contact_file.getName());
+                System.out.println("File not found: " + contactFile.getName());
             }
         }
         else 
         {
-            System.out.println("File does not exist: " + contact_file.getName());
+            System.out.println("File does not exist: " + contactFile.getName());
         }
     }
-    public void toFile(String filepath) 
+    public void toFile(String filePath) 
     {
         try 
         {
-            File contact_file = new File(filepath);
-            contact_file.delete();
-            contact_file.createNewFile();
-            System.out.println("File created successfully: " + contact_file);
-            System.out.println(contactDirectory.contact_list);
+            File contactFile = new File(filePath);
+            contactFile.delete();
+            contactFile.createNewFile();
+            System.out.println("File created successfully: " + contactFile);
+            System.out.println(contactDirectory.contactList);
 
-            String contact_string = "";
-            Iterator<contactInfo> it = contactDirectory.contact_list.iterator();
+            String contactString = "";
+            Iterator<contactInfo> it = contactDirectory.contactList.iterator();
             
             while (it.hasNext()) 
             {
                 contactInfo contact = it.next();
-                contact_string += contact.toString() + "\n";
+                contactString += contact.toString() + "\n";
             }
-            FileWriter fw = new FileWriter(contact_file.getAbsoluteFile());
+            FileWriter fw = new FileWriter(contactFile.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(contact_string);
+            bw.write(contactString);
             bw.close();
             fw.close();
         }

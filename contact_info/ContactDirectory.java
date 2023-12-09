@@ -6,23 +6,23 @@ import java.util.LinkedList;
 
 public class ContactDirectory 
 {
-    public LinkedList<contactInfo> contact_list;
+    public LinkedList<contactInfo> contactList;
     
-    private boolean satifyFindCondition(contactInfo curr_contact, contactInfo query_contact) 
+    private boolean satifyFindCondition(contactInfo currentContact, contactInfo queryContact) 
     {
-        if (curr_contact.getName() == query_contact.getName()) 
+        if (currentContact.getName() == queryContact.getName()) 
         {
             return true;
         }
-        if (curr_contact.getEmail() == query_contact.getEmail()) 
+        if (currentContact.getEmail() == queryContact.getEmail()) 
         {
             return true;
         }
-        if (curr_contact.getWorkPhone() == query_contact.getWorkPhone()) 
+        if (currentContact.getWorkPhone() == queryContact.getWorkPhone()) 
         {
             return true;
         }
-        if (curr_contact.getCellPhone() == query_contact.getCellPhone()) 
+        if (currentContact.getCellPhone() == queryContact.getCellPhone()) 
         {
             return true;
         }
@@ -31,57 +31,64 @@ public class ContactDirectory
     
     public ContactDirectory() 
     {
-        contact_list = new LinkedList<contactInfo>();
+        contactList = new LinkedList<contactInfo>();
     }
     
-    public ContactDirectory(LinkedList<contactInfo> contact_list_) 
+    public ContactDirectory(LinkedList<contactInfo> contactList_) 
     {
-        contact_list = contact_list_;
+        contactList = contactList_;
     }
     
     public void addContact(contactInfo contact, int position) 
     {
-        contact_list.add(position, contact);
+        contactList.add(position, contact);
     }
     
     public void addContact(contactInfo contact) 
     {
-        contact_list.addLast(contact);
+        contactList.addLast(contact);
     }
     
     public void removeContact(int position) 
     {
-        contact_list.remove(position);
+        if (position >= 0 && position < contactList.size()) 
+        {
+            contactList.remove(position);
+        } 
+        else 
+        {
+            System.out.println("Invalid contact index. No contact removed.");
+        }
     }
     
     public void updateContact(contactInfo contact, int position) 
     {
-        contact_list.set(position, contact);
+        contactList.set(position, contact);
     } 
     
     public ContactDirectory findContact(contactInfo contact) 
     {
-        ContactDirectory satisfied_contacts = new ContactDirectory();
-        Iterator<contactInfo> it = contact_list.iterator();
+        ContactDirectory satisfiedContacts = new ContactDirectory();
+        Iterator<contactInfo> it = contactList.iterator();
         
         while (it.hasNext()) 
         {
-            contactInfo curr_contact = it.next();
+            contactInfo currentContact = it.next();
             
-            if (satifyFindCondition(curr_contact, contact)) 
+            if (satifyFindCondition(currentContact, contact)) 
             {
-                satisfied_contacts.addContact(curr_contact);
+                satisfiedContacts.addContact(currentContact);
             }
         }
-        return satisfied_contacts;
+        return satisfiedContacts;
     }
     
     public void displayContact(int position) 
     {
-        if (position >= 0 && position < contact_list.size()) 
+        if (position >= 0 && position < contactList.size()) 
         {
 
-            contactInfo contact = contact_list.get(position);
+            contactInfo contact = contactList.get(position);
 
             System.out.println("---------- Contact info ----------");
             System.out.println("Name: " + contact.getName());
@@ -99,8 +106,14 @@ public class ContactDirectory
     
     public void displayContactList() 
     {
+        if (contactList.isEmpty()) 
+        {
+            System.out.println("There is no contact in the contact list.");
+            //return;
+        }
+        
         int i = 0;
-        Iterator<contactInfo> it = contact_list.iterator();
+        Iterator<contactInfo> it = contactList.iterator();
         
         while (it.hasNext()) 
         {

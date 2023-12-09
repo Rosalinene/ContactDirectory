@@ -71,6 +71,7 @@ public class Main
                     
                 case Action.UPDATE_CONTACT:
                     contact_directory.displayContactList();
+                    
                     System.out.println("Enter the index of the contact you'd like to update: ");
                     int update_position = scanner.nextInt();
                     System.out.println("Enter the updated information: ");
@@ -85,6 +86,7 @@ public class Main
                     String update_work_phone = scanner.nextLine();
                     System.out.print("Cell phone number: ");
                     String update_cell_phone = scanner.nextLine();
+                    
                     contactInfo update_contact = new contactInfo(update_name, update_address, update_email, update_work_phone, update_cell_phone);
                     contact_directory.updateContact(update_contact, update_position);
                     break;
