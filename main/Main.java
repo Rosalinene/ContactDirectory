@@ -9,6 +9,11 @@ import contact.*;
  */
 public class Main 
 {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) 
     {
         ContactDirectory contactDirectory = new ContactDirectory();

@@ -9,15 +9,27 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Scanner;
 
+/**
+ *
+ * @author huong
+ */
 public class FileManagement 
 {
     private ContactDirectory contactDirectory;
 
+    /**
+     *
+     * @param contactDirectory
+     */
     public FileManagement(ContactDirectory contactDirectory) 
     {
         this.contactDirectory = contactDirectory;
     }
     
+    /**
+     *
+     * @param filePath
+     */
     public void fromFile(String filePath) 
     {
         File contactFile = new File(filePath);
@@ -48,6 +60,11 @@ public class FileManagement
             System.out.println("File does not exist: " + contactFile.getName());
         }
     }
+
+    /**
+     *
+     * @param filePath
+     */
     public void toFile(String filePath) 
     {
         try 

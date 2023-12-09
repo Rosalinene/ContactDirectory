@@ -4,8 +4,16 @@ package contact;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ *
+ * @author huong
+ */
 public class ContactDirectory 
 {
+
+    /**
+     *
+     */
     public LinkedList<ContactInfo> contactList;
     
     private boolean satifyFindCondition(ContactInfo currentContact, ContactInfo queryContact) 
@@ -29,26 +37,46 @@ public class ContactDirectory
         return false;
     }//End satifyFindCondition
     
+    /**
+     *
+     */
     public ContactDirectory() 
     {
         contactList = new LinkedList<ContactInfo>();
     }//End ContactDirectory() 
     
+    /**
+     *
+     * @param contactList_
+     */
     public ContactDirectory(LinkedList<ContactInfo> contactList_) 
     {
         contactList = contactList_;
     }//End ContactDirectory
     
+    /**
+     *
+     * @param contact
+     * @param position
+     */
     public void addContact(ContactInfo contact, int position) 
     {
         contactList.add(position, contact);
     }//End addContact
     
+    /**
+     *
+     * @param contact
+     */
     public void addContact(ContactInfo contact) 
     {
         contactList.addLast(contact);
     }//End addContact
     
+    /**
+     *
+     * @param position
+     */
     public void removeContact(int position) 
     {
         if (position >= 0 && position < contactList.size()) 
@@ -61,11 +89,21 @@ public class ContactDirectory
         }//End else
     }//End removeContact
     
+    /**
+     *
+     * @param contact
+     * @param position
+     */
     public void updateContact(ContactInfo contact, int position) 
     {
         contactList.set(position, contact);
     } //End updateContact
     
+    /**
+     *
+     * @param contact
+     * @return
+     */
     public ContactDirectory findContact(ContactInfo contact) 
     {
         ContactDirectory satisfiedContacts = new ContactDirectory();
@@ -83,6 +121,10 @@ public class ContactDirectory
         return satisfiedContacts;
     }//End findContact
     
+    /**
+     *
+     * @param position
+     */
     public void displayContact(int position) 
     {
         if (position >= 0 && position < contactList.size()) 
@@ -104,6 +146,9 @@ public class ContactDirectory
         }//End else
     }//End displayContact
     
+    /**
+     *
+     */
     public void displayContactList() 
     {
         if (contactList.isEmpty()) 
