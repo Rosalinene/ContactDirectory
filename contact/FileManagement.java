@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class fileManagement 
+public class FileManagement 
 {
     private ContactDirectory contactDirectory;
 
-    public fileManagement(ContactDirectory contactDirectory) 
+    public FileManagement(ContactDirectory contactDirectory) 
     {
         this.contactDirectory = contactDirectory;
     }
@@ -32,7 +32,7 @@ public class fileManagement
                 while (scanner.hasNextLine()) 
                 {
                     String line = scanner.nextLine();
-                    contactInfo contact = new contactInfo();
+                    ContactInfo contact = new ContactInfo();
                     contact.fromString(line);
                     contactDirectory.addContact(contact);
                 }
@@ -59,11 +59,11 @@ public class fileManagement
             System.out.println(contactDirectory.contactList);
 
             String contactString = "";
-            Iterator<contactInfo> it = contactDirectory.contactList.iterator();
+            Iterator<ContactInfo> it = contactDirectory.contactList.iterator();
             
             while (it.hasNext()) 
             {
-                contactInfo contact = it.next();
+                ContactInfo contact = it.next();
                 contactString += contact.toString() + "\n";
             }
             FileWriter fw = new FileWriter(contactFile.getAbsoluteFile());

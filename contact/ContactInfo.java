@@ -1,13 +1,11 @@
 
 package contact;
 
-import java.io.Serializable;
-
 /**
  *
  * @author huong
  */
-public class contactInfo implements Serializable 
+public class ContactInfo  
 {
     private String name;
     private String address;
@@ -15,8 +13,8 @@ public class contactInfo implements Serializable
     private String workPhone;
     private String cellPhone;
 
-    // Constructor
-    contactInfo() 
+    
+    ContactInfo() 
     {}
     
     /**
@@ -27,14 +25,14 @@ public class contactInfo implements Serializable
      * @param workPhone_
      * @param cellPhone_
      */
-    public contactInfo(String name_, String address_, String email_, String workPhone_, String cellPhone_) 
+    public ContactInfo(String name_, String address_, String email_, String workPhone_, String cellPhone_) 
     {
         this.name = name_;
         this.address = address_;
         this.email = email_;
         this.workPhone = workPhone_;
         this.cellPhone = cellPhone_;
-    }
+    }// End Constructor
     
     /**
      *
@@ -43,7 +41,7 @@ public class contactInfo implements Serializable
     public String getName() 
     {
         return name;
-    }
+    }//End getName() 
 
     /**
      *
@@ -52,7 +50,7 @@ public class contactInfo implements Serializable
     public String getAddress() 
     {
         return address;
-    }
+    }//End getAddress() 
 
     /**
      *
@@ -61,7 +59,7 @@ public class contactInfo implements Serializable
     public String getEmail() 
     {
         return email;
-    }
+    }//End getEmail() 
 
     /**
      *
@@ -70,7 +68,7 @@ public class contactInfo implements Serializable
     public String getWorkPhone() 
     {
         return workPhone;
-    }
+    }//End getWorkPhone() 
 
     /**
      *
@@ -79,7 +77,7 @@ public class contactInfo implements Serializable
     public String getCellPhone() 
     {
         return cellPhone;
-    }
+    }//End getCellPhone() 
     
     /**
      *
@@ -90,8 +88,8 @@ public class contactInfo implements Serializable
         if (isValidName(name_)) 
         {
             name = name_;
-        }
-    }
+        }//End if
+    }//End setName
     
     /**
      *
@@ -102,8 +100,8 @@ public class contactInfo implements Serializable
         if (isValidAddress(address_))
         {
             address = address_;
-        }
-    }
+        }//End if
+    }//End setAddress
     
     /**
      *
@@ -114,9 +112,8 @@ public class contactInfo implements Serializable
         if (isValidEmail(email_)) 
         {
             email = email_;
-        }
-        
-    }
+        }//End if
+    }//End setEmail
 
     /**
      *
@@ -127,8 +124,8 @@ public class contactInfo implements Serializable
         if (isValidPhone(workPhone_)) 
         {
             workPhone = workPhone_;
-        }
-    }
+        }//End if
+    }//End setWorkPhone
     
     /**
      *
@@ -139,65 +136,60 @@ public class contactInfo implements Serializable
         if (isValidPhone(cellPhone_)) 
         {
             cellPhone = cellPhone_;
-        }
-    }
+        }//End if
+    }//End setCellPhone
    
      private boolean isValidName(String name_) 
      {
-        // ret stands for a condition to be added later on
         boolean ret = !name_.isEmpty() && name_.matches("^[a-zA-Z\\s]+$");
 
-        // code to check valid here 
         if (ret) 
         {
             System.out.println("Name valid!");
             return true;
-        }
+        }//End if
         System.out.println("Name not valid!");
         return false;
-    }
+    }//End isValidName
      
     private boolean isValidAddress(String address_) 
     {
-        // ret stands for a condition to be added later on
         boolean ret = !address_.isEmpty();
 
         if (ret) 
         {
             System.out.println("Address valid!");
             return true;
-        }
+        }//End if
         System.out.println("Address not valid!");
         return false;
-    }
+    }//End isValidAddress
     
     private boolean isValidEmail(String email_) 
     {
-        // ret stands for a condition to be added later on
         boolean ret = !email_.isEmpty() && email_.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
 
         if (ret) 
         {
             System.out.println("Email valid!");
             return true;
-        }
+        }//End if
         System.out.println("Email not valid!");
         return false;
-    }
+    }//End isValidEmail
     
     private boolean isValidPhone(String phone_) 
     {
-        // ret stands for a condition to be added later on
         boolean ret = !phone_.isEmpty() && phone_.matches("^[0-9]+$");
 
         if (ret) 
         {
             System.out.println("Phone number valid!");
             return true;
-        }
+        }//End if
         System.out.println("Phone number not valid!");
         return false;
-    }
+    }//End isValidPhone
     
     /**
      *
@@ -211,7 +203,7 @@ public class contactInfo implements Serializable
         email = tokens[2];
         workPhone = tokens[3];
         cellPhone = tokens[4];
-    }
+    }//End fromString
 
     /**
      *
@@ -225,5 +217,5 @@ public class contactInfo implements Serializable
         //msg+= super.toString();
         
         return msg;
-    }
-}
+    }//End toString() 
+}//End 

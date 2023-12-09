@@ -11,11 +11,11 @@ public class Main
 {
     public static void main(String[] args) 
     {
-        ContactDirectory contact_directory = new ContactDirectory();
+        ContactDirectory contactDirectory = new ContactDirectory();
         Scanner scanner = new Scanner(System.in);
-        boolean is_running = true;
+        boolean isRunning = true;
         
-        while (is_running) 
+        while (isRunning) 
         {
             //contact_directory.displayContactList();
             System.out.println("Choose below options: \n" +
@@ -32,17 +32,17 @@ public class Main
             switch (action) 
             {
                 case Action.QUIT_APP:
-                    is_running = false;    
+                    isRunning = false;    
                     break;
                     
                 case Action.DISPLAY_CONTACT_LIST:
-                    contact_directory.displayContactList();
+                    contactDirectory.displayContactList();
                     break;
                     
                 case Action.DISPLAY_CONTACT_INFO:
                     System.out.println("Enter the index of the contact you'd like to display: ");
-                    int display_position = scanner.nextInt();
-                    contact_directory.displayContact(display_position);
+                    int displayPosition = scanner.nextInt();
+                    contactDirectory.displayContact(displayPosition);
                     break;
                     
                 case Action.ADD_CONTACT:
@@ -55,56 +55,56 @@ public class Main
                     System.out.print("Email: ");
                     String email = scanner.nextLine();
                     System.out.print("Work phone number: ");
-                    String work_phone = scanner.nextLine();
+                    String workPhone = scanner.nextLine();
                     System.out.print("Cell phone number: ");
-                    String cell_phone = scanner.nextLine();
-                    contactInfo new_contact = new contactInfo(name, address, email, work_phone, cell_phone);
-                    contact_directory.addContact(new_contact);
+                    String cellPhone = scanner.nextLine();
+                    ContactInfo newContact = new ContactInfo(name, address, email, workPhone, cellPhone);
+                    contactDirectory.addContact(newContact);
                     break;
                     
                 case Action.REMOVE_CONTACT:
-                    contact_directory.displayContactList();
+                    contactDirectory.displayContactList();
                     System.out.println("Enter the index of the contact you'd like to remove: ");
-                    int remove_position = scanner.nextInt();
-                    contact_directory.removeContact(remove_position);
+                    int removePosition = scanner.nextInt();
+                    contactDirectory.removeContact(removePosition);
                     break;
                     
                 case Action.UPDATE_CONTACT:
-                    contact_directory.displayContactList();
+                    contactDirectory.displayContactList();
                     
                     System.out.println("Enter the index of the contact you'd like to update: ");
-                    int update_position = scanner.nextInt();
+                    int updatePosition = scanner.nextInt();
                     System.out.println("Enter the updated information: ");
                     scanner.nextLine();
                     System.out.print("Name: ");
-                    String update_name = scanner.nextLine();
+                    String updateName = scanner.nextLine();
                     System.out.print("Address: ");
-                    String update_address = scanner.nextLine();
+                    String updateAddress = scanner.nextLine();
                     System.out.print("Email: ");
-                    String update_email = scanner.nextLine();
+                    String updateEmail = scanner.nextLine();
                     System.out.print("Work phone number: ");
-                    String update_work_phone = scanner.nextLine();
+                    String updateWorkPhone = scanner.nextLine();
                     System.out.print("Cell phone number: ");
-                    String update_cell_phone = scanner.nextLine();
+                    String updateCellPhone = scanner.nextLine();
                     
-                    contactInfo update_contact = new contactInfo(update_name, update_address, update_email, update_work_phone, update_cell_phone);
-                    contact_directory.updateContact(update_contact, update_position);
+                    ContactInfo updateContact = new ContactInfo(updateName, updateAddress, updateEmail, updateWorkPhone, updateCellPhone);
+                    contactDirectory.updateContact(updateContact, updatePosition);
                     break;
                     
                 case Action.READ_CONTACTS:
                     scanner.nextLine();
                     System.out.print("Enter path to file: ");
-                    String read_file = scanner.nextLine();
-                    fileManagement fm = new fileManagement(contact_directory);
-                    fm.fromFile(read_file);
+                    String readFile = scanner.nextLine();
+                    FileManagement fm = new FileManagement(contactDirectory);
+                    fm.fromFile(readFile);
                     break;
                     
                 case Action.WRITE_CONTACTS:
                     scanner.nextLine();
                     System.out.print("Enter path to file you want to write to: ");
-                    String write_file = scanner.nextLine();
-                    fileManagement fm1 = new fileManagement(contact_directory);
-                    fm1.toFile(write_file);
+                    String writeFile = scanner.nextLine();
+                    FileManagement fm1 = new FileManagement(contactDirectory);
+                    fm1.toFile(writeFile);
                     break;
                 default:
                     break;

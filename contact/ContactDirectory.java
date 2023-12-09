@@ -6,89 +6,89 @@ import java.util.LinkedList;
 
 public class ContactDirectory 
 {
-    public LinkedList<contactInfo> contactList;
+    public LinkedList<ContactInfo> contactList;
     
-    private boolean satifyFindCondition(contactInfo currentContact, contactInfo queryContact) 
+    private boolean satifyFindCondition(ContactInfo currentContact, ContactInfo queryContact) 
     {
         if (currentContact.getName() == queryContact.getName()) 
         {
             return true;
-        }
+        }//End if
         if (currentContact.getEmail() == queryContact.getEmail()) 
         {
             return true;
-        }
+        }//End if
         if (currentContact.getWorkPhone() == queryContact.getWorkPhone()) 
         {
             return true;
-        }
+        }//End if
         if (currentContact.getCellPhone() == queryContact.getCellPhone()) 
         {
             return true;
-        }
+        }//End if
         return false;
-    }
+    }//End satifyFindCondition
     
     public ContactDirectory() 
     {
-        contactList = new LinkedList<contactInfo>();
-    }
+        contactList = new LinkedList<ContactInfo>();
+    }//End ContactDirectory() 
     
-    public ContactDirectory(LinkedList<contactInfo> contactList_) 
+    public ContactDirectory(LinkedList<ContactInfo> contactList_) 
     {
         contactList = contactList_;
-    }
+    }//End ContactDirectory
     
-    public void addContact(contactInfo contact, int position) 
+    public void addContact(ContactInfo contact, int position) 
     {
         contactList.add(position, contact);
-    }
+    }//End addContact
     
-    public void addContact(contactInfo contact) 
+    public void addContact(ContactInfo contact) 
     {
         contactList.addLast(contact);
-    }
+    }//End addContact
     
     public void removeContact(int position) 
     {
         if (position >= 0 && position < contactList.size()) 
         {
             contactList.remove(position);
-        } 
+        } //End if
         else 
         {
             System.out.println("Invalid contact index. No contact removed.");
-        }
-    }
+        }//End else
+    }//End removeContact
     
-    public void updateContact(contactInfo contact, int position) 
+    public void updateContact(ContactInfo contact, int position) 
     {
         contactList.set(position, contact);
-    } 
+    } //End updateContact
     
-    public ContactDirectory findContact(contactInfo contact) 
+    public ContactDirectory findContact(ContactInfo contact) 
     {
         ContactDirectory satisfiedContacts = new ContactDirectory();
-        Iterator<contactInfo> it = contactList.iterator();
+        Iterator<ContactInfo> it = contactList.iterator();
         
         while (it.hasNext()) 
         {
-            contactInfo currentContact = it.next();
+            ContactInfo currentContact = it.next();
             
             if (satifyFindCondition(currentContact, contact)) 
             {
                 satisfiedContacts.addContact(currentContact);
-            }
-        }
+            }//End if
+        }//End while
         return satisfiedContacts;
-    }
+    }//End findContact
     
     public void displayContact(int position) 
     {
         if (position >= 0 && position < contactList.size()) 
         {
 
-            contactInfo contact = contactList.get(position);
+            ContactInfo contact = contactList.get(position);
 
             System.out.println("---------- Contact info ----------");
             System.out.println("Name: " + contact.getName());
@@ -97,12 +97,12 @@ public class ContactDirectory
             System.out.println("Work phone number: " + contact.getWorkPhone());
             System.out.println("Cell phone number: " + contact.getCellPhone());
             System.out.println("--------------- End ---------------");
-        }
+        }//End if
         else 
         {
             System.out.println("Invalid contact index.\n");
-        }
-    }
+        }//End else
+    }//End displayContact
     
     public void displayContactList() 
     {
@@ -110,21 +110,21 @@ public class ContactDirectory
         {
             System.out.println("There is no contact in the contact list.\n");
             return;
-        }
+        }//End if
         
         int i = 0;
-        Iterator<contactInfo> it = contactList.iterator();
+        Iterator<ContactInfo> it = contactList.iterator();
         
         while (it.hasNext()) 
         {
-            contactInfo contact = it.next();
+            ContactInfo contact = it.next();
             
             if (i!= 0)
             {
                 System.out.println("------------------------------");
-            }
+            }//End if
             System.out.println("Contact number [" + i + "]: " + contact.getName() + " - " + contact.getEmail());
             ++i;
-        }
-    }
-}
+        }//End while
+    }//End displayContactList() 
+}//End ContactDirectory 
