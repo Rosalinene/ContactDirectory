@@ -78,15 +78,23 @@ public class ContactDirectory
     
     public void displayContact(int position) 
     {
-        contactInfo contact = contact_list.get(position);
-        
-        System.out.println("---------- Contact info ----------");
-        System.out.println("Name: " + contact.getName());
-        System.out.println("Address: " + contact.getAddress());
-        System.out.println("Email: " + contact.getEmail());
-        System.out.println("Work phone number: " + contact.getWorkPhone());
-        System.out.println("Cell phone number: " + contact.getCellPhone());
-        System.out.println("--------------- End ---------------");
+        if (position >= 0 && position < contact_list.size()) 
+        {
+
+            contactInfo contact = contact_list.get(position);
+
+            System.out.println("---------- Contact info ----------");
+            System.out.println("Name: " + contact.getName());
+            System.out.println("Address: " + contact.getAddress());
+            System.out.println("Email: " + contact.getEmail());
+            System.out.println("Work phone number: " + contact.getWorkPhone());
+            System.out.println("Cell phone number: " + contact.getCellPhone());
+            System.out.println("--------------- End ---------------");
+        }
+        else 
+        {
+            System.out.println("Invalid contact index.\n");
+        }
     }
     
     public void displayContactList() 
