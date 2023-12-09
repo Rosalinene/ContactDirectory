@@ -17,7 +17,7 @@ public class Main
         
         while (is_running) 
         {
-            contact_directory.displayContactList();
+            //contact_directory.displayContactList();
             System.out.println("Choose below options: \n" +
                                 "0.Display contact list\n" + 
                                 "1. Display contact info\n" + 

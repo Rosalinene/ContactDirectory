@@ -108,8 +108,8 @@ public class ContactDirectory
     {
         if (contactList.isEmpty()) 
         {
-            System.out.println("There is no contact in the contact list.");
-            //return;
+            System.out.println("There is no contact in the contact list.\n");
+            return;
         }
         
         int i = 0;
