@@ -16,6 +16,9 @@ public class contactInfo implements Serializable
     private String cellPhone;
 
     // Constructor
+    public contactInfo()
+    {}
+    
     public contactInfo(String name_, String address_, String email_, String workPhone_, String cellPhone_) 
     {
         this.name = name_;
@@ -93,10 +96,9 @@ public class contactInfo implements Serializable
      private boolean isValidName(String name_) 
      {
         // ret stands for a condition to be added later on
-        boolean ret = true;
+        boolean ret = !name_.isEmpty() && name_.matches("^[a-zA-Z\\s]+$");
 
-        // code to check valid here
-        
+        // code to check valid here 
         if (ret) 
         {
             System.out.println("Name valid!");
@@ -109,9 +111,7 @@ public class contactInfo implements Serializable
     private boolean isValidAddress(String address_) 
     {
         // ret stands for a condition to be added later on
-        boolean ret = true;
-
-        // code to check valid here
+        boolean ret = !address_.isEmpty();
 
         if (ret) 
         {
@@ -125,9 +125,7 @@ public class contactInfo implements Serializable
     private boolean isValidEmail(String email_) 
     {
         // ret stands for a condition to be added later on
-        boolean ret = true;
-
-        // code to check valid here
+        boolean ret = !email_.isEmpty() && email_.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
 
         if (ret) 
         {
@@ -141,9 +139,7 @@ public class contactInfo implements Serializable
     private boolean isValidPhone(String phone_) 
     {
         // ret stands for a condition to be added later on
-        boolean ret = true;
-
-        // code to check valid here
+        boolean ret = !phone_.isEmpty() && phone_.matches("^[0-9]+$");
 
         if (ret) 
         {

@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class ContactDirectory 
 {
-    private LinkedList<contactInfo> contact_list;
+    public LinkedList<contactInfo> contact_list;
     
     private boolean satifyFindCondition(contactInfo curr_contact, contactInfo query_contact) 
     {
