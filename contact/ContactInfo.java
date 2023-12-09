@@ -221,7 +221,7 @@ public class contactInfo implements Serializable
     public String toString() 
     {
         String msg;
-        msg = "contactInfo{" + "name=" + name + ", address=" + address + ", email=" + email + ", workPhone=" + workPhone + ", cellPhone=" + cellPhone + '}';
+        msg = String.join("\t", name, address, email, workPhone, cellPhone);
         //msg+= super.toString();
         
         return msg;
