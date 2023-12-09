@@ -35,17 +35,17 @@ public class contactInfo implements Serializable
         return address;
     }
 
-    public String getEmailAddress() 
+    public String getEmail() 
     {
         return email;
     }
 
-    public String getWorkPhoneNumber() 
+    public String getWorkPhone() 
     {
         return workPhone;
     }
 
-    public String getCellPhoneNumber() 
+    public String getCellPhone() 
     {
         return cellPhone;
     }
@@ -165,9 +165,12 @@ public class contactInfo implements Serializable
     }
 
     @Override
-    public String toString() {
-        return "contactInfo{" + "name=" + name + ", address=" + address + ", email=" + email + ", workPhone=" + workPhone + ", cellPhone=" + cellPhone + '}';
+    public String toString() 
+    {
+        String msg;
+        msg = "contactInfo{" + "name=" + name + ", address=" + address + ", email=" + email + ", workPhone=" + workPhone + ", cellPhone=" + cellPhone + '}';
+        //msg+= super.toString();
+        
+        return msg;
     }
-    
-    
 }
