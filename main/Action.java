@@ -1,5 +1,5 @@
 
-package contactdirectory;
+package main;
 
 /**
  *

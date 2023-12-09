@@ -1,5 +1,5 @@
 
-package contact_info;
+package contact;
 
 import java.util.Iterator;
 import java.util.LinkedList;

@@ -1,8 +1,8 @@
 
-package contactdirectory;
+package main;
 
 import java.util.Scanner;
-import contact_info.*;
+import contact.*;
 /**
  *
  * @author huong
