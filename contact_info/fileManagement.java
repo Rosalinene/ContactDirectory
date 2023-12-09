@@ -34,7 +34,7 @@ public class fileManagement
                     String line = scanner.nextLine();
                     contactInfo contact = new contactInfo();
                     contact.fromString(line);
-                    addContact(contact);
+                    contactDirectory.addContact(contact);
                 }
                 scanner.close();
             } 

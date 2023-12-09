@@ -18,14 +18,14 @@ public class Main
         while (is_running) 
         {
             contact_directory.displayContactList();
-            System.out.println("What do you want to do? " +
-                                "0.Display contact list\t" + 
-                                "1. Display contact info\t" + 
-                                "2. Add contact\t" + 
-                                "3. Remove contact\t" + 
-                                "4. Update contact\t" + 
-                                "5. Read contact list from file\t" +
-                                "6. Save contact list to file\t" +
+            System.out.println("Choose below options: " +
+                                "0.Display contact list\n" + 
+                                "1. Display contact info\n" + 
+                                "2. Add contact\n" + 
+                                "3. Remove contact\n" + 
+                                "4. Update contact\n" + 
+                                "5. Read contact list from file\n" +
+                                "6. Save contact list to file\n" +
                                 "7. Quit application");
             int action = scanner.nextInt();
             
@@ -37,6 +37,7 @@ public class Main
                     
                 case Action.DISPLAY_CONTACT_LIST:
                     contact_directory.displayContactList();
+                    break;
                     
                 case Action.DISPLAY_CONTACT_INFO:
                     System.out.println("Enter the index of the contact you'd like to display: ");
@@ -92,14 +93,16 @@ public class Main
                     scanner.nextLine();
                     System.out.print("Enter path to file: ");
                     String read_file = scanner.nextLine();
-                    contact_directory.fromFile(read_file);
+                    fileManagement fm = new fileManagement(contact_directory);
+                    fm.fromFile(read_file);
                     break;
                     
                 case Action.WRITE_CONTACTS:
                     scanner.nextLine();
                     System.out.print("Enter path to file you want to write to: ");
                     String write_file = scanner.nextLine();
-                    contact_directory.toFile(write_file);
+                    fileManagement fm1 = new fileManagement(contact_directory);
+                    fm1.toFile(write_file);
                     break;
                 default:
                     break;

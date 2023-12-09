@@ -91,7 +91,6 @@ public class ContactDirectory
     
     public void displayContactList() 
     {
-        System.out.println("====================== Contact List ======================");
         int i = 0;
         Iterator<contactInfo> it = contact_list.iterator();
         
@@ -106,6 +105,5 @@ public class ContactDirectory
             System.out.println("Contact number [" + i + "]: " + contact.getName() + " - " + contact.getEmail());
             ++i;
         }
-        System.out.println("=========================== End ===========================");
     }
 }

@@ -16,9 +16,17 @@ public class contactInfo implements Serializable
     private String cellPhone;
 
     // Constructor
-    public contactInfo()
+    contactInfo() 
     {}
     
+    /**
+     *
+     * @param name_
+     * @param address_
+     * @param email_
+     * @param workPhone_
+     * @param cellPhone_
+     */
     public contactInfo(String name_, String address_, String email_, String workPhone_, String cellPhone_) 
     {
         this.name = name_;
@@ -27,32 +35,56 @@ public class contactInfo implements Serializable
         this.workPhone = workPhone_;
         this.cellPhone = cellPhone_;
     }
-
+    
+    /**
+     *
+     * @return
+     */
     public String getName() 
     {
         return name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress() 
     {
         return address;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() 
     {
         return email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWorkPhone() 
     {
         return workPhone;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCellPhone() 
     {
         return cellPhone;
     }
     
+    /**
+     *
+     * @param name_
+     */
     public void setName(String name_) 
     {
         if (isValidName(name_)) 
@@ -61,6 +93,10 @@ public class contactInfo implements Serializable
         }
     }
     
+    /**
+     *
+     * @param address_
+     */
     public void setAddress(String address_) 
     {
         if (isValidAddress(address_))
@@ -69,6 +105,10 @@ public class contactInfo implements Serializable
         }
     }
     
+    /**
+     *
+     * @param email_
+     */
     public void setEmail(String email_) 
     {
         if (isValidEmail(email_)) 
@@ -77,6 +117,11 @@ public class contactInfo implements Serializable
         }
         
     }
+
+    /**
+     *
+     * @param workPhone_
+     */
     public void setWorkPhone(String workPhone_) 
     {
         if (isValidPhone(workPhone_)) 
@@ -85,6 +130,10 @@ public class contactInfo implements Serializable
         }
     }
     
+    /**
+     *
+     * @param cellPhone_
+     */
     public void setCellPhone(String cellPhone_) 
     {
         if (isValidPhone(cellPhone_)) 
@@ -150,6 +199,10 @@ public class contactInfo implements Serializable
         return false;
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void fromString(String txt) 
     {
         String[] tokens = txt.split("\t");
@@ -160,6 +213,10 @@ public class contactInfo implements Serializable
         cellPhone = tokens[4];
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() 
     {
